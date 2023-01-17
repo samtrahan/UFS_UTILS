@@ -27,6 +27,13 @@ if [[ -d /lfs4 ]] ; then
     fi
     target=jet
     module purge
+elif [[ -d /lustre/work ]] ; then
+    # Axiom Azure
+    if ( ! eval module help > /dev/null 2>&1 ) ; then
+	source /lustre/work/soft/lmod/lmod/init/bash
+    fi
+    target=axiom
+    module purge
 elif [[ -d /lfs/h1 ]] ; then
     target=wcoss2
     module reset
